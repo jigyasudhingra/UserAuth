@@ -102,7 +102,12 @@
         </form>
     <a href="/signup">New User</a>
        
-        
+        <hr>    
+        <a href="{% url 'social:begin' 'facebook' %}">Signin With Facebook</a> <hr>
+        <a href="{% url 'social:begin' 'github' %}">Signin With Github</a> <hr>
+        <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Signin With Linkedin</a> <hr>
+        <a href="{% url 'social:begin' 'google-oauth2' %}">Signin With Google</a> <hr>
+
     </div>
     
 </body>
