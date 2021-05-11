@@ -8,4 +8,4 @@ When the user creates a new account, then everything will be going to save into 
 
 You can also view the registered user via the admin panel.
 
-![](static/1.png)
+<img src="/static/1.png" width=700>
