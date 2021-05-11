@@ -1,6 +1,6 @@
 ## UserAuth
 
-This web app includes a sign-in, sign-up feature.
+This web app includes a sign-in, sign-up feature, along with the social media app authorisation including LinkedIn, GitHub, Facebook, Google.
 
 User will be only able to enter into the site when he/she is sign-in. Otherwise, it will redirect back to the login page, where the user has the feature of sign-in and sign-up. 
 
