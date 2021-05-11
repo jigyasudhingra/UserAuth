@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -123,3 +126,56 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'django.contrib.auth.backends.ModelBackend', #Don't forget to add if using django.contrib.auth
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
+
+#For Login Redirects
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY	=	'3967790830009842'	# Facebook App	ID
+SOCIAL_AUTH_FACEBOOK_SECRET	=	'c7d0714639f009fb589c0e9952bfc8e6'	# Facebook App Secret
+
+SOCIAL_AUTH_FACEBOOK_OAUTH2_USE_UNIQUE_USER_ID = True
+
+ 
+SOCIAL_AUTH_GITHUB_KEY = 'e3c24b610236e8953958'     # github id     
+SOCIAL_AUTH_GITHUB_SECRET = '9d294e010b125da438343431a5be0b8f9563450d'  # github secret key
+
+SOCIAL_AUTH_GITHUB_OAUTH2_USE_UNIQUE_USER_ID = True
+
+ 
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '78zsdz5k8b2tqa'    #Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'pbZDsm2XWxYjXmgO'  #Client Secret
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
+# Add the fields so they will be requested from linkedin.
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['emailAddress']
+# Arrange to add the fields to UserSocialAuth.extra_data
+SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [('id', 'id'),
+                                          ('firstName', 'first_name'),
+                                          ('lastName', 'last_name'),
+                                          ('emailAddress', 'email_address')]
+SOCIAL_AUTH_LINKEDIN_OAUTH2_USE_UNIQUE_USER_ID = True
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '838333608252-2u0ueolccve3bs2thrcmevpsr48lges9.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'sol2xB9xRuPBiJ_OFY_tAi5s'
+
+# Define SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE to get extra permissions from Google.
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
+
