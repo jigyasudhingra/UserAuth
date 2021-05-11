@@ -15,5 +15,10 @@
       </p>
     {% endfor %}
     <button type="submit">Sign up</button>
+    <hr>    
+        <a href="{% url 'social:begin' 'facebook' %}">Signin With Facebook</a> <hr>
+        <a href="{% url 'social:begin' 'github' %}">Signin With Github</a> <hr>
+        <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Signin With Linkedin</a> <hr>
+        <a href="{% url 'social:begin' 'google-oauth2' %}">Signin With Google</a> <hr>
   </form>
 {% endblock %}
